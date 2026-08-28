@@ -1,0 +1,2 @@
+# Solitario
+Proyecto de solitario
