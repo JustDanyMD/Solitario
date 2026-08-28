@@ -52,7 +52,22 @@ public class JuegoSolitario
             }
 
             return true;
-
             
         }
+
+        public void RobarCarta()
+        {
+            Carta? carta = Tablero.Mazo.QuitarSuperior();
+
+            if (carta == null )
+                return;
+            
+            carta.Voltear();
+
+            Tablero.Descarte.Agregar(carta);
+        }
+
+
+
+
     }
