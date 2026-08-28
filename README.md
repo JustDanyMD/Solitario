@@ -1,2 +1,2 @@
 # Solitario
-Proyecto de solitario
+Proyecto personal del juego de cartas solitario
