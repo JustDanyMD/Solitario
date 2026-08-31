@@ -13,8 +13,7 @@ public class JuegoSolitario
         {
             Tablero = new Tablero();
             Baraja = new Baraja();
-            Reglas = new Reglas ();
-            
+            Reglas = new Reglas (); 
         }
 
         public void IniciarJuego()
@@ -98,9 +97,37 @@ public class JuegoSolitario
 
             return true;
 
-              
         }
 
+        public bool MoverColumna(int columnaOrigen, int posicion, int columnaDestino)
+        {
+            Pila origen = Tablero.Columnas[columnaOrigen];
+            Pila destino = Tablero.Columnas[columnaDestino];
+
+            if (!Reglas.PuedeMoverSecuencia(origen, posicion))
+                return false;
+            
+            Carta carta = origen.Obtener(posicion);
+
+            if (!Reglas.PuedeMover(carta, destino))
+                return false;
+
+            List<Carta> cartasMovidas = origen.RetirarDesde(posicion);
+            
+            foreach (Carta cartaMovida in cartasMovidas)
+            {
+                destino.Agregar(cartaMovida);
+            }
+
+            Carta? nuevaSuperior = origen.ObtenerSuperior();
+
+            if (nuevaSuperior != null && nuevaSuperior.EstaBocaAbajo)
+            {
+                nuevaSuperior.Voltear();
+            }
+
+            return true;
+        }
 
 
 
