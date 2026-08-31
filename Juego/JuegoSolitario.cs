@@ -173,7 +173,7 @@ public class JuegoSolitario
         }
 
 
-        public bool MMoverColumnaAFundacion(int columnaOrigen, int indiceFundacion)
+        public bool MoverColumnaAFundacion(int columnaOrigen, int indiceFundacion)
         {
             if (columnaOrigen < 0 || columnaOrigen >= Tablero.Columnas.Count)
                 return false;
