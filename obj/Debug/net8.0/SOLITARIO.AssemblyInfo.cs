@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SOLITARIO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+638e7449befc37d06dbb13316444abe683f2bd58")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7dd40fc59ba7b53356edce2de331b5f213523f06")]
 [assembly: System.Reflection.AssemblyProductAttribute("SOLITARIO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SOLITARIO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

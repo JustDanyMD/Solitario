@@ -128,7 +128,87 @@ public class JuegoSolitario
 
             return true;
         }
+        public void MostrarTablero()
+        {
+            for (int i = 0; i < Tablero.Columnas.Count; i++)
+            {
+               Console.WriteLine($"Columna {i + 1}:");
+
+               foreach  (Carta carta in Tablero.Columnas[i].ObtenerCartas())
+                {
+                    Console.WriteLine($" {carta}");
+                } 
+
+                Console.WriteLine();
+            }
+
+        }
+        public bool MoverDescarteAColumna(int columnaDestino)
+        {
+
+            if(columnaDestino < 0 || columnaDestino >= Tablero.Columnas.Count )
+                return false;
+
+        
+            Pila descarte = Tablero.Descarte;
+            Pila destino = Tablero.Columnas[columnaDestino];
+
+            Carta? carta = descarte.ObtenerSuperior();
+
+            if (carta == null )
+                return false;
+
+            if (!Reglas.PuedeMover(carta, destino))
+                return false;
+
+            Carta? cartaMovida = descarte.QuitarSuperior();
+
+            if(cartaMovida == null)
+                return false;
+
+            destino.Agregar(cartaMovida);
+
+                return true;
+
+        }
 
 
+        public bool MMoverColumnaAFundacion(int columnaOrigen, int indiceFundacion)
+        {
+            if (columnaOrigen < 0 || columnaOrigen >= Tablero.Columnas.Count)
+                return false;
+
+            if (indiceFundacion < 0 || indiceFundacion >= Tablero.Fundaciones.Count)
+                return false;
+
+            Pila origen = Tablero.Columnas[columnaOrigen];
+            Fundacion fundacion = Tablero.Fundaciones[indiceFundacion];
+
+            Carta? carta = origen.ObtenerSuperior();
+
+            if (carta == null)
+                return false;
+
+            if (!Reglas.PuedeColocarEnFundaciones(carta, fundacion))
+                return false;
+
+            Carta? cartaMovida = origen.QuitarSuperior();
+
+            if (cartaMovida == null)
+                return false;
+
+            fundacion.Agregar(cartaMovida);
+
+            Carta? nuevaSuperior = origen.ObtenerSuperior();
+
+            if (nuevaSuperior != null && nuevaSuperior.EstaBocaAbajo)
+            {
+                nuevaSuperior.Voltear();
+            }
+
+            return true;
 
     }
+
+
+}

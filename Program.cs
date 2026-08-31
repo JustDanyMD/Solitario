@@ -8,6 +8,13 @@ juego.IniciarJuego();
 
 juego.RobarCarta();
 
+Console.WriteLine($"Carta en descarte: {juego.Tablero.Descarte.ObtenerSuperior()}");
+
+bool movimiento = juego.MoverDescarteAColumna(0);
+
+Console.WriteLine($"Movimiento realizado: {movimiento}");
+juego.MostrarTablero();
+
 Console.WriteLine();
 Console.WriteLine($"Mazo: {juego.Tablero.Mazo.Cantidad}");
 Console.WriteLine($"Descarte: {juego.Tablero.Descarte.Cantidad}");
