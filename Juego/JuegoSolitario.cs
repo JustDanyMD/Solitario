@@ -1,5 +1,6 @@
 using solitario.Juego;
 using Solitario.Entidades;
+using Solitario.Enumeraciones;
 
 namespace Solitario.Juego;
 public class JuegoSolitario
@@ -65,6 +66,39 @@ public class JuegoSolitario
             carta.Voltear();
 
             Tablero.Descarte.Agregar(carta);
+        }
+
+        public bool MoverAFundacion(int columnaOrigen, int indiceFundacion)
+        {
+            Pila origen = Tablero.Columnas[columnaOrigen];
+            Fundacion fundacion = Tablero.Fundaciones[indiceFundacion];
+
+            Carta? carta = origen.ObtenerSuperior();
+
+            if (carta == null)
+                return false;
+
+            if (!Reglas.PuedeColocarEnFundaciones(carta, fundacion))
+                return false;
+
+            Carta? cartaMovida = origen.QuitarSuperior();
+
+            if (cartaMovida == null)
+                return false;
+            
+            fundacion.Agregar(cartaMovida);
+
+            Carta? nuevaSuperior = origen.ObtenerSuperior();
+
+            if (nuevaSuperior != null && nuevaSuperior.EstaBocaAbajo)
+            {
+                nuevaSuperior.Voltear();
+            
+            }
+
+            return true;
+
+              
         }
 
 

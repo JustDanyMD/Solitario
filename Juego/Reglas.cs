@@ -49,9 +49,18 @@ public class Reglas
             return true;
 
         }
-    
 
+        public bool PuedeColocarEnFundaciones(Carta carta, Fundacion fundacion)
+        {
+            if (carta.Palo != fundacion.Palo)
+                return false;
 
+            Carta? superior = fundacion.ObtenerSuperior();
+
+            if (superior == null)
+                return carta.Valor == Valor.As;
+            return (int)carta.Valor == (int)superior.Valor + 1;
+        }
 
 
     }

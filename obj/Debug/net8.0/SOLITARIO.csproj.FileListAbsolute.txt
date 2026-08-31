@@ -12,3 +12,4 @@ C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\refint\SOLITARIO.dll
 C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.pdb
 C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.genruntimeconfig.cache
 C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\ref\SOLITARIO.dll
+C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.sourcelink.json

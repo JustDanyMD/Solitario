@@ -1,24 +1,23 @@
 using Solitario.Entidades;
+using Solitario.Enumeraciones;
+
 public class Tablero
     {
         public Pila Mazo { get;}
         public Pila Descarte { get; }
 
         public List<Pila> Columnas{ get; }
-        public List<Pila> Fundaciones { get;}
+        public List<Fundacion> Fundaciones { get;}
 
         public Tablero()
         {
             Mazo = new Pila();
             Descarte = new Pila();
             Columnas = new List<Pila>();
-            Fundaciones = new List<Pila>();
+            Fundaciones = new List<Fundacion>();
 
             CrearColumnas();
             CrearFundaciones();
-
-
-
         }
 
         private void CrearColumnas()
@@ -32,9 +31,9 @@ public class Tablero
 
         private void CrearFundaciones()
         {
-            for (int i = 0; i < 4; i++)
+            foreach (Palo palo in Enum.GetValues<Palo>())
             {
-                Fundaciones.Add(new Pila());
+               Fundaciones.Add(new Fundacion(palo)); 
             }
         }
     }
