@@ -6,11 +6,12 @@ JuegoSolitario juego = new();
 
 juego.IniciarJuego();
 
-Console.WriteLine($"Cartas en el mazo: {juego.Tablero.Mazo.Cantidad}");
-
-Console.WriteLine($"Cartas en el descarte: {juego.Tablero.Descarte.Cantidad}");
+juego.RobarCarta();
 
 Console.WriteLine();
+Console.WriteLine($"Mazo: {juego.Tablero.Mazo.Cantidad}");
+Console.WriteLine($"Descarte: {juego.Tablero.Descarte.Cantidad}");
+Console.WriteLine($"Carta: {juego.Tablero.Descarte.ObtenerSuperior()}");
 
 for (int i = 0; i < juego.Tablero.Columnas.Count; i++)
 {
