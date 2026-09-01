@@ -208,7 +208,35 @@ public class JuegoSolitario
 
             return true;
 
-    }
+        }
+
+        public bool MoverDescarteAFundacion(int indiceFundacion)
+        {
+            if (indiceFundacion < 0 ||indiceFundacion >= Tablero.Fundaciones.Count)
+                return false;
+
+
+            Pila descarte = Tablero.Descarte;
+            Fundacion fundacion = Tablero.Fundaciones[indiceFundacion];
+
+            Carta? carta = descarte.ObtenerSuperior();
+
+            if (carta == null)
+                return false;
+
+            if (!Reglas.PuedeColocarEnFundaciones(carta, fundacion))
+                return false;
+
+            Carta? cartaMovida = descarte.QuitarSuperior();
+
+            if (cartaMovida == null)
+                return false;
+
+            fundacion.Agregar(cartaMovida);
+
+            return true;
+
+        }
 
 
 }
