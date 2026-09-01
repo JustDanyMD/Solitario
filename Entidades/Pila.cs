@@ -55,4 +55,13 @@ public class Pila
     {
         return cartas[posicion];
     }
+
+    public List<Carta> Vaciar()
+    {
+        List<Carta> cartasRetiradas = new(cartas);
+        cartas.Clear();
+
+        return cartasRetiradas;
+    }
+
 }
