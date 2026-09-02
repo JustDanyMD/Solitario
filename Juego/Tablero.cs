@@ -1,6 +1,6 @@
-using Solitario.Entidades;
 using Solitario.Enumeraciones;
 
+namespace Solitario.Entidades;
 public class Tablero
     {
         public Pila Mazo { get;}

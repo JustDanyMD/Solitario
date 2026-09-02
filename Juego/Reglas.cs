@@ -16,6 +16,7 @@ public class Reglas
         public bool PuedeMover(Carta carta, Pila destino)
         {
             Carta? cartaSuperior = destino.ObtenerSuperior();
+            
             if (cartaSuperior == null)
             {
                 return carta.Valor == Valor.Rey;
@@ -50,7 +51,7 @@ public class Reglas
 
         }
 
-        public bool PuedeColocarEnFundaciones(Carta carta, Fundacion fundacion)
+        public bool PuedeColocarEnFundacion(Carta carta, Fundacion fundacion)
         {
             if (carta.Palo != fundacion.Palo)
                 return false;

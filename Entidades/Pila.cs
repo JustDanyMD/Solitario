@@ -1,15 +1,8 @@
-using Solitario.Enumeraciones;
 namespace Solitario.Entidades;
 public class Pila
 {
     private List<Carta> cartas = new();
-
     public int Cantidad => cartas.Count;
-
-    public Pila()
-    {
-        cartas = new List<Carta>();
-    }
 
     public void Agregar(Carta carta)
         {

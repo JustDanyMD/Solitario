@@ -1,10 +1,9 @@
-
 using Solitario.Enumeraciones;
-
 namespace Solitario.Entidades;
 public class Baraja
 {
     public List<Carta> Cartas { get; private set; }
+    public int Cantidad => Cartas.Count;
 
     public Baraja() 
     {

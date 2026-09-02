@@ -1,41 +1,161 @@
+
 using Solitario.Juego;
-using Solitario.Entidades;
-using Solitario.Enumeraciones;
 
 JuegoSolitario juego = new();
 
 juego.IniciarJuego();
 
-juego.RobarCarta();
+bool jugando = true;
 
-Console.WriteLine($"Carta en descarte: {juego.Tablero.Descarte.ObtenerSuperior()}");
-
-bool movimiento = juego.MoverDescarteAColumna(0);
-
-Console.WriteLine($"Movimiento realizado: {movimiento}");
-juego.MostrarTablero();
-
-Console.WriteLine();
-Console.WriteLine($"Mazo: {juego.Tablero.Mazo.Cantidad}");
-Console.WriteLine($"Descarte: {juego.Tablero.Descarte.Cantidad}");
-Console.WriteLine($"Carta: {juego.Tablero.Descarte.ObtenerSuperior()}");
-
-for (int i = 0; i < juego.Tablero.Columnas.Count; i++)
+while (jugando)
 {
-    Console.WriteLine(
-        $"Columna {i + 1}: {juego.Tablero.Columnas[i].Cantidad} cartas"
-    );
-}
+      Console.Clear();
 
-Console.WriteLine();
+    juego.MostrarTablero();
 
-Console.WriteLine($"Cartas restantes en Baraja: {juego.Baraja.Cartas.Count}");
+    Console.WriteLine();
+    Console.WriteLine("=== SOLITARIO ===");
+    Console.WriteLine("1. Robar carta");
+    Console.WriteLine("2. Mover columna");
+    Console.WriteLine("3. Mover descarte");
+    Console.WriteLine("4. Mover a fundación");
+    Console.WriteLine("5. Salir");
+    Console.WriteLine("6. Reiniciar partida");
 
-Console.WriteLine();
+    Console.Write("Opción: ");
+    string? opcion = Console.ReadLine();
 
-for (int i = 0; i < juego.Tablero.Fundaciones.Count; i++)
-{
-    Console.WriteLine(
-        $"Fundación {i + 1}: {juego.Tablero.Fundaciones[i].Palo}"
-    );
+    switch (opcion)
+    {
+        case "1":
+            juego.RobarCarta();
+            break;
+
+        case "2":
+            Console.Write("Columna origen: ");
+            int origen = int.Parse(Console.ReadLine()!) - 1;
+
+            Console.Write("Posición de la carta: ");
+            int posicion = int.Parse(Console.ReadLine()!);
+
+            Console.Write("Columna destino: ");
+            int destino = int.Parse(Console.ReadLine()!) - 1;
+
+            bool movimiento = juego.MoverColumna(
+                origen,
+                posicion,
+                destino
+            );
+
+            Console.WriteLine(
+                movimiento
+                    ? "Movimiento realizado."
+                    : "Movimiento inválido."
+            );
+
+            Console.ReadKey();
+            break;
+
+        case "3":
+            Console.Write("Columna destino: ");
+
+            if (!int.TryParse(Console.ReadLine(), out int columnaDestino))
+            {
+                Console.WriteLine("Entrada inválida.");
+                Console.ReadKey();
+                break;
+            }
+
+            columnaDestino--;
+
+            bool movimientoDescarte =
+                juego.MoverDescarteAColumna(columnaDestino);
+
+            Console.WriteLine(
+                movimientoDescarte
+                    ? "Movimiento realizado."
+                    : "Movimiento inválido."
+            );
+
+            Console.ReadKey();
+            break;
+        case "4":
+            Console.WriteLine();
+            Console.WriteLine("1. Columna → Fundación");
+            Console.WriteLine("2. Descarte → Fundación");
+
+            Console.Write("Origen: ");
+
+            if (!int.TryParse(Console.ReadLine(), out int origenFundacion))
+            {
+                Console.WriteLine("Entrada inválida.");
+                Console.ReadKey();
+                break;
+            }
+
+            Console.Write("Fundación destino (1-4): ");
+
+            if (!int.TryParse(Console.ReadLine(), out int fundacionDestino))
+            {
+                Console.WriteLine("Entrada inválida.");
+                Console.ReadKey();
+                break;
+            }
+
+            fundacionDestino--;
+
+            bool movimientoFundacion;
+
+            if (origenFundacion == 1)
+            {
+                Console.Write("Columna origen (1-7): ");
+
+                if (!int.TryParse(Console.ReadLine(), out int columnaOrigen))
+                {
+                    Console.WriteLine("Entrada inválida.");
+                    Console.ReadKey();
+                    break;
+                }
+
+                columnaOrigen--;
+
+                movimientoFundacion =
+                    juego.MoverColumnaAFundacion(
+                        columnaOrigen,
+                        fundacionDestino
+                    );
+            }
+            else if (origenFundacion == 2)
+            {
+                movimientoFundacion =
+                    juego.MoverDescarteAFundacion(
+                        fundacionDestino
+                    );
+            }
+            else
+            {
+                Console.WriteLine("Origen inválido.");
+                Console.ReadKey();
+                break;
+            }
+
+            Console.WriteLine(
+                movimientoFundacion
+                    ? "Movimiento realizado."
+                    : "Movimiento inválido."
+            );
+
+            Console.ReadKey();
+            break;
+        case "5":
+            jugando = false;
+            break;
+
+        case "6":
+            juego.ReiniciarJuego();
+
+            Console.WriteLine("Partida reiniciada.");
+            Console.ReadKey();
+            break;
+    }
 }

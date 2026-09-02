@@ -9,6 +9,8 @@ namespace Solitario.Entidades
     {
         public Palo Palo {get; }
 
+        public bool EstaCompleta => Cantidad == 13;
+
         public Fundacion(Palo palo )
         {
             Palo = palo;
