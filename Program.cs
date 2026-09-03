@@ -1,5 +1,6 @@
 
 using Solitario.Juego;
+using Solitario.Entidades;
 
 JuegoSolitario juego = new();
 
@@ -7,11 +8,42 @@ juego.IniciarJuego();
 
 bool jugando = true;
 
+void MostrarTablero(JuegoSolitario juego)
+{
+        {
+            Console.WriteLine($"Movimientos: {juego.Movimientos}");
+            Console.WriteLine($"Mazo: {juego.Tablero.Mazo.Cantidad} cartas");
+            Console.WriteLine($"Descarte:{juego.Tablero.Descarte.ObtenerSuperior()}");
+            Console.WriteLine();
+            Console.WriteLine("Fundaciones:");
+
+            foreach (Fundacion fundacion in juego.Tablero.Fundaciones)
+            {
+               Console.WriteLine($"{fundacion.Palo}: {fundacion.ObtenerSuperior()}"); 
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Columnas:");
+
+            for (int i = 0; i < juego.Tablero.Columnas.Count; i++)
+            {
+               Console.WriteLine($"Columna {i + 1}:");
+
+               foreach  (Carta carta in juego.Tablero.Columnas[i].ObtenerCartas())
+                {
+                    Console.WriteLine($" {carta}");
+                } 
+
+                Console.WriteLine();
+            }
+
+        }
+}
 while (jugando)
 {
       Console.Clear();
 
-    juego.MostrarTablero();
+    MostrarTablero(juego);
 
     Console.WriteLine();
     Console.WriteLine("=== SOLITARIO ===");

@@ -2,10 +2,9 @@ using Solitario.Enumeraciones;
 
 namespace Solitario.Entidades;
 public class Tablero
-    {
+{
         public Pila Mazo { get;}
         public Pila Descarte { get; }
-
         public List<Pila> Columnas{ get; }
         public List<Fundacion> Fundaciones { get;}
 
@@ -36,4 +35,4 @@ public class Tablero
                Fundaciones.Add(new Fundacion(palo)); 
             }
         }
-    }
+}

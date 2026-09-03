@@ -1,10 +1,10 @@
 using Solitario.Entidades;
 using Solitario.Enumeraciones;
 
-namespace solitario.Juego;
+namespace Solitario.Juego;
 
 public class Reglas
-    {
+{
         public bool PuedeColocar(Carta carta, Carta destino)
         {
             if (carta.EsRoja == destino.EsRoja)
@@ -64,5 +64,5 @@ public class Reglas
         }
 
 
-    }
+}
 

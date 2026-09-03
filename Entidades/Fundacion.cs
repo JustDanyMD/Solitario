@@ -1,7 +1,5 @@
 using Solitario.Enumeraciones;
 
-
-
 namespace Solitario.Entidades
 
 {

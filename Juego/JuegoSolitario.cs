@@ -1,5 +1,4 @@
 
-using solitario.Juego;
 using Solitario.Entidades;
 
 namespace Solitario.Juego;
@@ -19,8 +18,13 @@ public class JuegoSolitario
 
         public void IniciarJuego()
         {
+            Tablero = new Tablero();
+            Baraja = new Baraja();
+
             Movimientos = 0;
+
             Baraja.Barajar();
+
             Repartidor repartidor = new();
             repartidor.Repartir(Baraja, Tablero);
         }
@@ -48,35 +52,6 @@ public class JuegoSolitario
             Movimientos++;
         }
 
-        public bool MoverAFundacion(int columnaOrigen, int indiceFundacion)
-        {
-            Pila origen = Tablero.Columnas[columnaOrigen];
-            Fundacion fundacion = Tablero.Fundaciones[indiceFundacion];
-
-            Carta? carta = origen.ObtenerSuperior();
-
-            if (carta == null)
-                return false;
-
-            if (!Reglas.PuedeColocarEnFundacion(carta, fundacion))
-                return false;
-
-            Carta? cartaMovida = origen.QuitarSuperior();
-
-            if (cartaMovida == null)
-                return false;
-            
-            fundacion.Agregar(cartaMovida);
-
-            Carta? nuevaSuperior = origen.ObtenerSuperior();
-
-            if (nuevaSuperior != null && nuevaSuperior.EstaBocaAbajo)
-            {
-                nuevaSuperior.Voltear();
-            }
-
-            return true;
-        }
         public bool MoverColumna(int columnaOrigen, int posicion, int columnaDestino)
         {
             if (columnaOrigen < 0 || columnaOrigen >= Tablero.Columnas.Count)
@@ -115,35 +90,7 @@ public class JuegoSolitario
 
             return true;
         }
-        public void MostrarTablero()
-        {
-            Console.WriteLine($"Movimientos: {Movimientos}");
-            Console.WriteLine($"Mazo: {Tablero.Mazo.Cantidad} cartas");
-            Console.WriteLine($"Descarte:{Tablero.Descarte.ObtenerSuperior()}");
-            Console.WriteLine();
-            Console.WriteLine("Fundaciones:");
 
-            foreach (Fundacion fundacion in Tablero.Fundaciones)
-            {
-               Console.WriteLine($"{fundacion.Palo}: {fundacion.ObtenerSuperior()}"); 
-            }
-
-            Console.WriteLine();
-            Console.WriteLine("Columnas:");
-
-            for (int i = 0; i < Tablero.Columnas.Count; i++)
-            {
-               Console.WriteLine($"Columna {i + 1}:");
-
-               foreach  (Carta carta in Tablero.Columnas[i].ObtenerCartas())
-                {
-                    Console.WriteLine($" {carta}");
-                } 
-
-                Console.WriteLine();
-            }
-
-        }
         public bool MoverDescarteAColumna(int columnaDestino)
         {
             if(columnaDestino < 0 || columnaDestino >= Tablero.Columnas.Count )
@@ -262,11 +209,7 @@ public class JuegoSolitario
 
         public void ReiniciarJuego()
         {
-            Tablero = new Tablero();
-            Baraja = new Baraja();
-
             IniciarJuego();
-
         }
 
 }

@@ -1,7 +1,7 @@
 namespace Solitario.Entidades;
 public class Pila
 {
-    private List<Carta> cartas = new();
+    private readonly List<Carta> cartas = new();
     public int Cantidad => cartas.Count;
 
     public void Agregar(Carta carta)

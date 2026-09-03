@@ -20,7 +20,7 @@ public class Repartidor
             }
         }
 
-        while (baraja.Cartas.Count > 0)
+        while (baraja.Cantidad > 0)
         {
             Carta carta = baraja.RetirarSuperior();
 
