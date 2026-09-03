@@ -1,0 +1,7 @@
+<Solution>
+  <Folder Name="/Solitario.Console/">
+    <Project Path="Solitario.Console/SOLITARIO.csproj" />
+  </Folder>
+  <Project Path="Solitario.Core/Solitario.Core.csproj" />
+  <Project Path="Solitario.WPF/Solitario.WPF.csproj" />
+</Solution>

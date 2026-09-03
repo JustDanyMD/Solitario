@@ -1,15 +1,5 @@
-C:\Users\USUARIO\Downloads\as\TETS\bin\Debug\net8.0\SOLITARIO.exe
-C:\Users\USUARIO\Downloads\as\TETS\bin\Debug\net8.0\SOLITARIO.deps.json
-C:\Users\USUARIO\Downloads\as\TETS\bin\Debug\net8.0\SOLITARIO.runtimeconfig.json
-C:\Users\USUARIO\Downloads\as\TETS\bin\Debug\net8.0\SOLITARIO.dll
-C:\Users\USUARIO\Downloads\as\TETS\bin\Debug\net8.0\SOLITARIO.pdb
 C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.AssemblyInfoInputs.cache
 C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.AssemblyInfo.cs
 C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.csproj.CoreCompileInputs.cache
-C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.dll
-C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\refint\SOLITARIO.dll
-C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.pdb
-C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.genruntimeconfig.cache
-C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\ref\SOLITARIO.dll
 C:\Users\USUARIO\Downloads\as\TETS\obj\Debug\net8.0\SOLITARIO.sourcelink.json

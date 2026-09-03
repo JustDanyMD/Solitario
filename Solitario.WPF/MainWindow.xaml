@@ -1,0 +1,124 @@
+
+<Window x:Class="Solitario.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Solitario"
+        Width="1200"
+        Height="800"
+        WindowStartupLocation="CenterScreen">
+
+    <Grid Margin="20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Información superior -->
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,20">
+
+            <TextBlock Text="Solitario"
+                       FontSize="28"
+                       FontWeight="Bold"/>
+
+            <TextBlock Text="Movimientos: 0"
+                       FontSize="18"
+                       Margin="40,8,0,0"/>
+        </StackPanel>
+
+        <!-- Tablero -->
+        <Grid Grid.Row="1">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="180"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Mazo, descarte y fundaciones -->
+            <Grid Grid.Row="0">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Mazo -->
+                <Border Grid.Column="0"
+                        Width="100"
+                        Height="140"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="8"
+                        HorizontalAlignment="Left">
+
+                    <TextBlock Text="MAZO"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <!-- Descarte -->
+                <Border Grid.Column="1"
+                        Width="100"
+                        Height="140"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="8"
+                        HorizontalAlignment="Left">
+
+                    <TextBlock Text="DESCARTE"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"/>
+                </Border>
+
+                <!-- Fundaciones -->
+                <UniformGrid Grid.Column="2"
+                             Columns="4"
+                             HorizontalAlignment="Right">
+
+                    <Border Width="100"
+                            Height="140"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Margin="5"/>
+
+                    <Border Width="100"
+                            Height="140"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Margin="5"/>
+
+                    <Border Width="100"
+                            Height="140"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Margin="5"/>
+
+                    <Border Width="100"
+                            Height="140"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="8"
+                            Margin="5"/>
+
+                </UniformGrid>
+
+            </Grid>
+
+            <!-- Columnas del tablero -->
+            <UniformGrid x:Name="ColumnasPanel"
+                         Grid.Row="1"
+                         Columns="7"
+                         HorizontalAlignment="Stretch"/>
+
+        </Grid>
+
+    </Grid>
+
+</Window>
+
